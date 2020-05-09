@@ -1,0 +1,18 @@
+{
+    "dir": "ltr",
+    "lang": "en",
+    "name": "TO DO",
+    "scope": "/todo/",
+    "display": "browser",
+    "start_url": "https://kibret16.github.io/todo/",
+    "short_name": "TO DO",
+    "theme_color": "transparent",
+    "description": "",
+    "orientation": "any",
+    "background_color": "transparent",
+    "related_applications": [],
+    "prefer_related_applications": false,
+    "icons": [],
+    "url": "https://kibret16.github.io/todo/",
+    "generated": "true"
+}
