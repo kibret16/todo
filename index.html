@@ -23,7 +23,7 @@ ul {
 /* Style the list items */
 ul li {
   cursor: pointer;
-  padding: 12px 8px 12px 40px;
+  padding: 12px 8px 12px 25px;
   list-style-type: none;
   background: #eee;
   font-size: 18px;
@@ -62,10 +62,11 @@ ul li.checked::before {
 .close {
   float: left;
   margin: 0px 10px 0px 0px;
-  border: 2px solid green;
+  border: 2px solid;
   padding: 0px 5px;
   position: relative;
   top: -2px;
+  color: #ccc
 }
 
 .close:hover {
@@ -140,7 +141,7 @@ var myNodelist = document.getElementsByTagName("LI");
 var i;
 for (i = 0; i < myNodelist.length; i++) {
   var span = document.createElement("SPAN");
-  var txt = document.createTextNode("\u2713");
+  var txt = document.createTextNode("✔");
   span.className = "close";
   myNodelist[i].appendChild(span);
   span.appendChild(txt);
@@ -178,7 +179,7 @@ function newElement() {
   document.getElementById("myInput").value = "";
 
   var span = document.createElement("SPAN");
-  var txt = document.createTextNode("\u2713");
+  var txt = document.createTextNode("✔");
   span.className = "close";
   span.appendChild(txt);
   li.appendChild(span);
