@@ -11,6 +11,7 @@ body {
 /* Include the padding and border in an element's total width and height */
 * {
   box-sizing: border-box;
+  font-family: sans-serif;
 }
 
 /* Remove margins and padding from the list */
@@ -22,7 +23,6 @@ ul {
 /* Style the list items */
 ul li {
   cursor: pointer;
-  position: relative;
   padding: 12px 8px 12px 40px;
   list-style-type: none;
   background: #eee;
@@ -36,15 +36,6 @@ ul li {
   user-select: none;
 }
 
-/* Set all odd list items to a different color (zebra-stripes) */
-ul li:nth-child(odd) {
-  background: #f9f9f9;
-}
-
-/* Darker background-color on hover */
-ul li:hover {
-  background: #ddd;
-}
 
 /* When clicked on, add a background color and strike out text */
 ul li.checked {
@@ -69,10 +60,12 @@ ul li.checked::before {
 
 /* Style the close button */
 .close {
-  position: absolute;
-  right: 0;
-  top: 0;
-  padding: 12px 16px 12px 16px;
+  float: left;
+  margin: 0px 10px 0px 0px;
+  border: 2px solid green;
+  padding: 0px 5px;
+  position: relative;
+  top: -2px;
 }
 
 .close:hover {
@@ -82,8 +75,8 @@ ul li.checked::before {
 
 /* Style the header */
 .header {
-  background-color: #f44336;
-  padding: 30px 40px;
+  background-color: darkgray;
+  padding: 25px;
   color: white;
   text-align: center;
 }
@@ -93,6 +86,10 @@ ul li.checked::before {
   content: "";
   display: table;
   clear: both;
+}
+
+.header h1 {
+    margin: 15px;
 }
 
 /* Style the input */
@@ -128,18 +125,13 @@ input {
 <body>
 
 <div id="myDIV" class="header">
-  <h2 style="margin:5px">My To Do List</h2>
-  <input type="text" id="myInput" placeholder="Title...">
+  <h1>Pomodoro Tasks</h1>
+  <input type="text" id="myInput" placeholder="Task...">
   <span onclick="newElement()" class="addBtn">Add</span>
 </div>
 
 <ul id="myUL">
-  <li>Hit the gym</li>
-  <li class="checked">Pay bills</li>
-  <li>Meet George</li>
-  <li>Buy eggs</li>
-  <li>Read a book</li>
-  <li>Organize office</li>
+  <li>Hello</li>
 </ul>
 
 <script>
@@ -148,10 +140,10 @@ var myNodelist = document.getElementsByTagName("LI");
 var i;
 for (i = 0; i < myNodelist.length; i++) {
   var span = document.createElement("SPAN");
-  var txt = document.createTextNode("\u00D7");
+  var txt = document.createTextNode("\u2713");
   span.className = "close";
-  span.appendChild(txt);
   myNodelist[i].appendChild(span);
+  span.appendChild(txt);
 }
 
 // Click on a close button to hide the current list item
@@ -186,7 +178,7 @@ function newElement() {
   document.getElementById("myInput").value = "";
 
   var span = document.createElement("SPAN");
-  var txt = document.createTextNode("\u00D7");
+  var txt = document.createTextNode("\u2713");
   span.className = "close";
   span.appendChild(txt);
   li.appendChild(span);
