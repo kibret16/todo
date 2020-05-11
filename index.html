@@ -11,7 +11,7 @@ body {
 /* Include the padding and border in an element's total width and height */
 * {
   box-sizing: border-box;
-  font-family: sans-serif;
+  font-family: monospace;
 }
 
 /* Remove margins and padding from the list */
@@ -62,16 +62,16 @@ ul li.checked::before {
 .close {
   float: left;
   margin: 0px 10px 0px 0px;
-  border: 2px solid black;
+  border: 3px solid black;
   padding: 0px 5px;
   position: relative;
-  top: -2px;
-  color: transparent
+  top: -4px;
+  color: transparent;
+  border-radius: 5px;
 }
 
 .close:hover {
-  background-color: #f44336;
-  color: white;
+  color: #ccc;
 }
 
 /* Style the header */
@@ -121,13 +121,26 @@ input {
 .addBtn:hover {
   background-color: #bbb;
 }
+
+#counter-container {
+  display: block;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+  padding: 10px;
+  background: black;
+  color: #eee;
+}
+
+
 </style>
 </head>
 <body>
 
 <div id="myDIV" class="header">
-  <h1>Pomodoro Tasks</h1>
-  <input maxlength="35" type="text" id="myInput" placeholder="Task...">
+  <h1>25 Minute Project</h1>
+  <input maxlength="35" type="text" id="myInput" placeholder="Add tasks to project...">
   <span onclick="newElement()" class="addBtn">Add</span>
 </div>
 
@@ -139,7 +152,25 @@ input {
   <li>Tasks divided into small chunks</li>
 </ul>
 
+<div id = "counter-container">
+<span id = "counter"></span>
+</div>
+
 <script>
+
+var counter = 25*60;
+var spot = document.getElementById("counter");
+setInterval(function(){
+  var minutesRemaining = Math.ceil(counter / 60);
+  spot.innerHTML = ("Time remaining for all tasks: " + minutesRemaining + " minutes");
+  counter--
+  if (counter < 1) {
+    spot.innerHTML = ("Break time");
+  }
+}, 1000);
+
+
+
 // Create a "close" button and append it to each list item
 var myNodelist = document.getElementsByTagName("LI");
 var i;
